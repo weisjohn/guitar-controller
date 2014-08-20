@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/weisjohn/guitar-controller",
   "dependencies": {
-    "usb": "~0.3.11",
+    "usb": "~0.3.11"
   }
 }
