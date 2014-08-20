@@ -1,0 +1,22 @@
+{
+  "name": "guitar-controller",
+  "version": "0.0.1",
+  "description": "Easy to use event interface to a RedOctane (Guitar Hero) controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weisjohn/guitar-controller.git"
+  },
+  "author": "John Weis <weis.john@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weisjohn/guitar-controller/issues"
+  },
+  "homepage": "https://github.com/weisjohn/guitar-controller",
+  "dependencies": {
+    "usb": "~0.3.11",
+  }
+}

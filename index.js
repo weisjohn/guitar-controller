@@ -15,17 +15,23 @@ var usb = require('usb');
 
 var definitions = {
     "buttons": {
-        "green":    [4, 0x10],
-        "red":      [3, 0x02],
-        "yellow":   [4, 0x01],
-        "blue":     [4, 0x02],
-        "orange":   [4, 0x02],
-        "select":   [4, 0x02],
-        "start":    [4, 0x02],
+        "Green":    [3, 0x10],
+        "Red":      [3, 0x20],
+        "Yellow":   [3, 0x80],
+        "Blue":     [3, 0x40],
+        "Orange":   [3, 0x01],
+        "Back":     [2, 0x20],
+        "Start":    [2, 0x10],
+        "Up":       [2, 0x01],
+        "Down":     [2, 0x02],
+        "Left":     [2, 0x04],
+        "Right":    [2, 0x08],
+        "Xbox":     [3, 0x04]
     },
-    "dpad" : {
-        "EW" : 0,
-        "NS" : 1
+    "ranges": {
+        "X":        4,
+        "Y":        12,
+        "Whammy":   10,
     }
 }
 
@@ -34,6 +40,7 @@ function GuitarController(end) {
     var me = {};
 
     me.buttons = definitions.buttons;
+    me.ranges = definitions.ranges;
     me.controlState = new Buffer(20);
     me.controlString = "";
 
@@ -42,18 +49,12 @@ function GuitarController(end) {
         // early bolt for optimization improvements
         if (data.toString('hex') == me.controlString) return;
 
-        // check d-pad state
-        // var analogEW = data[me.dpad.EW];
-        // var analogNS = data[me.dpad.NS];
-
-        // if (this.controlState[this.dpad.EW] != analogEW) {
-        //     this.emit("analogEW", analogEW);
-        //     this.emit("analog", [analogEW, analogNS]);
-        // }
-        // if (this.controlState[this.dpad.NS] != analogNS) {
-        //     this.emit("analogNS", analogNS);
-        //     this.emit("analog", [analogEW, analogNS]);
-        // }
+        for (type in me.ranges) {
+            var address = me.ranges[type];
+            if (me.controlState[address] !== data[address]) {
+                end.emit(type, data[address]);
+            }
+        }
 
         // check buttons
         for (key in me.buttons) {
