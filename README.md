@@ -50,6 +50,8 @@ See the [example.js](example.js) file for more detailed usage.
  - `releaseLeft`
  - `pressRight`
  - `releaseRight`
+ - `pressXbox`
+ - `releaseXbox`
 
 #### Ranges:
 
