@@ -91,4 +91,4 @@ player1.on('x', function(val) {
 
 ### contribution
 
-If you have a Guitar Hero controller that isn't supported, pull requests are welcome.
+If you have a Guitar Hero controller that isn't supported, plug your controller in and run [examples/explorer.js](./examples/explorer.js). Create an issue and paste in the console results. Pull requests welcome.
