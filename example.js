@@ -7,7 +7,7 @@ function log(val) {
     return function(arg) { console.log(val, typeof arg !== "undefined" ? arg : "") }
 }
 
-var buttons = ["Green", "Red", "Yellow", "Blue", "Orange", "Start", "Back", "Up", "Down", "Left", "Right", "Xbox"]
+var buttons = ["green", "red", "yellow", "blue", "orange", "start", "back", "up", "down", "left", "right", "xbox"]
 buttons.forEach(function(button) {
     var press = button + ".press";
     var release = button + ".release";
@@ -15,6 +15,6 @@ buttons.forEach(function(button) {
     controller.on(release, log(release));
 });
 
-controller.on("X", log("X"));
-controller.on("Y", log("Y"));
-controller.on("Whammy", log("Whammy"));
+controller.on("x", log("x"));
+controller.on("y", log("y"));
+controller.on("whammy", log("whammy"));

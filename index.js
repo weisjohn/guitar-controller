@@ -15,23 +15,23 @@ var usb = require('usb');
 
 var definitions = {
     "buttons": {
-        "Green":    [3, 0x10],
-        "Red":      [3, 0x20],
-        "Yellow":   [3, 0x80],
-        "Blue":     [3, 0x40],
-        "Orange":   [3, 0x01],
-        "Back":     [2, 0x20],
-        "Start":    [2, 0x10],
-        "Up":       [2, 0x01],
-        "Down":     [2, 0x02],
-        "Left":     [2, 0x04],
-        "Right":    [2, 0x08],
-        "Xbox":     [3, 0x04]
+        "green":    [3, 0x10],
+        "red":      [3, 0x20],
+        "yellow":   [3, 0x80],
+        "blue":     [3, 0x40],
+        "orange":   [3, 0x01],
+        "back":     [2, 0x20],
+        "start":    [2, 0x10],
+        "up":       [2, 0x01],
+        "down":     [2, 0x02],
+        "left":     [2, 0x04],
+        "right":    [2, 0x08],
+        "xbox":     [3, 0x04]
     },
     "ranges": {
-        "X":        4,
-        "Y":        5,
-        "Whammy":   10,
+        "x":        4,
+        "y":        5,
+        "whammy":   10,
     }
 }
 
