@@ -3,9 +3,6 @@ guitar-controller
 
 Interface to a
 [Guitar Hero controller](http://www.amazon.com/Guitar-Hero-2-Controller-Xbox-360/dp/B000NUIYK0/ref=sr_1_1?s=videogames&ie=UTF8&qid=1408563315&sr=1-1&keywords=guitar+hero+controller+usb).
-Forked from [@weisjohn](https://github.com/weisjohn)'s [nes-controller](https://github.com/weisjohn/nes-controller) module.
-
-`npm install guitar-controller`
 
 ### usage
 
@@ -13,11 +10,11 @@ Forked from [@weisjohn](https://github.com/weisjohn)'s [nes-controller](https://
 var controllers = require('guitar-controller')();
 var player1 = controllers[0];
 
-player1.on('pressGreen', function() {
+player1.on('green.press', function() {
     console.log('green was pressed');
 });
 
-player1.on('releaseGreen', function() {
+player1.on('green.release', function() {
     console.log('green was released');
 });
 ```
@@ -26,42 +23,67 @@ See the [example.js](example.js) file for more detailed usage.
 
 ### API
 
-#### Buttons:
+##### Buttons:
 
- - `pressGreen`
- - `releaseGreen`
- - `pressRed`
- - `releaseRed`
- - `pressYellow`
- - `releaseYellow`
- - `pressBlue`
- - `releaseBlue`
- - `pressOrange`
- - `releaseOrange`
- - `pressStart`
- - `releaseStart`
- - `pressBack`
- - `releaseBack`
- - `pressUp`
- - `releaseUp`
- - `pressDown`
- - `releaseDown`
- - `pressLeft`
- - `releaseLeft`
- - `pressRight`
- - `releaseRight`
- - `pressXbox`
- - `releaseXbox`
+The controller has the following buttons:
 
-#### Ranges:
+ - green
+ - red
+ - yellow
+ - blue
+ - orange
+ - start
+ - back
+ - up
+ - down
+ - left
+ - right
+ - xbox
 
- - `X`
- - `Y`
- - `Whammy`
+For each button, a `press` and `release` event exist:
+
+ - `green.press`
+ - `green.release`
+ - `red.press`
+ - `red.release`
+ - `yellow.press`
+ - `yellow.release`
+ - `blue.press`
+ - `blue.release`
+ - `orange.press`
+ - `orange.release`
+ - `start.press`
+ - `start.release`
+ - `back.press`
+ - `back.release`
+ - `up.press`
+ - `up.release`
+ - `down.press`
+ - `down.release`
+ - `left.press`
+ - `left.release`
+ - `right.press`
+ - `right.release`
+ - `xbox.press`
+ - `xbox.release`
+
+
+##### Ranges:
+
+ - `x`
+ - `y`
+ - `whammy`
 
 Range events receive a value. (These update extremely frequently, it may need to be normalized).
 
+For example:
 
-### others
+```javascript
+player1.on('x', function(val) {
+    console.log(val);
+});
+```
+
+### contribution
 
 If you have a Guitar Hero controller that isn't supported, pull requests are welcome.
