@@ -86,6 +86,8 @@ module.exports = function() {
 
     usb.getDeviceList().forEach(function(device) {
         if (device.deviceDescriptor.idProduct !== 18248) return;
+        device.__open();
+        device.__claimInterface(0);
         device.open();
         device.interfaces.forEach(function(inter) {
             inter.claim();
