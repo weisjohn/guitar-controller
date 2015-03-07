@@ -1,7 +1,5 @@
 var controllers = require('./index')();
 
-
-
 if (!controllers[0]) throw new Error("No controller found");
 var controller = controllers[0];
 
@@ -11,8 +9,10 @@ function log(val) {
 
 var buttons = ["Green", "Red", "Yellow", "Blue", "Orange", "Start", "Back", "Up", "Down", "Left", "Right", "Xbox"]
 buttons.forEach(function(button) {
-    controller.on("press" + button, log("pressed " + button));
-    controller.on("release" + button, log("release " + button));
+    var press = button + ".press";
+    var release = button + ".release";
+    controller.on(press, log(press));
+    controller.on(release, log(release));
 });
 
 controller.on("X", log("X"));

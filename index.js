@@ -68,9 +68,9 @@ function GuitarController(end) {
             ) {
 
                 if ((data[chunk] & mask) === mask) {
-                    end.emit("press"+key);
+                    end.emit(key + ".press");
                 } else {
-                    end.emit("release"+key);
+                    end.emit(key + ".release");
                 }
             }
         };
