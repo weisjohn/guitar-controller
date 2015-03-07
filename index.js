@@ -91,7 +91,7 @@ module.exports = function() {
             inter.claim();
             inter.endpoints.forEach(function(end) {
                 if (end.direction !== "in") return;
-                end.startStream(7, end.descriptor.wMaxPacketSize);
+                end.startPoll(7, end.descriptor.wMaxPacketSize);
                 GuitarController(end);
                 controllers.push(end);
             });
