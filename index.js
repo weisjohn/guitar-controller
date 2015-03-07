@@ -22,8 +22,8 @@ var definitions = {
         "orange":   [3, 0x01],
         "back":     [2, 0x20],
         "start":    [2, 0x10],
-        "up":       [2, 0x01],
-        "down":     [2, 0x02],
+        "up":       [2, 0x02],
+        "down":     [2, 0x01],
         "left":     [2, 0x04],
         "right":    [2, 0x08],
         "xbox":     [3, 0x04]
