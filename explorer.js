@@ -1,7 +1,6 @@
 var usb = require('usb');
 var lo = _ = require('lodash');
 var async = require('async');
-
 var repl = require('repl');
 
 var devices = [];
@@ -17,16 +16,16 @@ var devices = [];
   // Current Available (mA):   500
   // Current Required (mA):    500
 
-
 usb.setDebugLevel(1);
 
 var i = 0;
 _.each(usb.getDeviceList(), function(device) {
 
+    console.log(device)
+
     if (device.deviceDescriptor.idProduct !== 18248) return; 
     devices.push(device);
-
-    // TODO: call open somewhere else?
+    // console.log(devices)
 
     device.open();
 
@@ -36,12 +35,9 @@ _.each(usb.getDeviceList(), function(device) {
 
         _.each(inter.endpoints, function(end) {
             
-
             if (end.direction !== "in") return;
-            console.log()
-            console.log(end.descriptor)
 
-            end.startStream(7, end.descriptor.wMaxPacketSize);
+            end.startPoll(1, end.descriptor.wMaxPacketSize);
 
             end.on('data', function(d) {
                 console.log(d);
@@ -49,14 +45,9 @@ _.each(usb.getDeviceList(), function(device) {
 
         });
 
-
-
     });
 
-    // device.close();
-
 });
-
 
 var local = repl.start(" ಠ_ಠ > "); 
 local.context.devices = devices;
