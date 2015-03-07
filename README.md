@@ -84,6 +84,13 @@ player1.on('x', function(val) {
 });
 ```
 
+### examples
+
+1. Plug in the guitar's USB cable.
+2. `node [script]` to test scripts in [examples](./examples) folder.
+3. Click buttons on your remote and commence mad science.
+
+
 ### contribution
 
 If you have a Guitar Hero controller that isn't supported, pull requests are welcome.
