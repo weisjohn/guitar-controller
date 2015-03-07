@@ -1,4 +1,4 @@
-var controllers = require('./index')();
+var controllers = require('../index')();
 
 if (!controllers[0]) throw new Error("No controller found");
 var controller = controllers[0];

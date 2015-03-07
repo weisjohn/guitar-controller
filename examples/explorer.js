@@ -21,28 +21,20 @@ usb.setDebugLevel(1);
 var i = 0;
 _.each(usb.getDeviceList(), function(device) {
 
-    console.log(device)
+    console.log(device);
 
     if (device.deviceDescriptor.idProduct !== 18248) return; 
     devices.push(device);
-    // console.log(devices)
 
     device.open();
 
     _.each(device.interfaces, function(inter) {
-
         inter.claim();
 
         _.each(inter.endpoints, function(end) {
-            
             if (end.direction !== "in") return;
-
             end.startPoll(1, end.descriptor.wMaxPacketSize);
-
-            end.on('data', function(d) {
-                console.log(d);
-            })
-
+            // end.on('data', function(d) { console.log(d); });
         });
 
     });
