@@ -1,6 +1,6 @@
 {
   "name": "guitar-controller",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Easy to use event interface to a RedOctane (Guitar Hero) controller",
   "main": "index.js",
   "scripts": {
