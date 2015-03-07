@@ -30,7 +30,7 @@ var definitions = {
     },
     "ranges": {
         "X":        4,
-        "Y":        12,
+        "Y":        5,
         "Whammy":   10,
     }
 }
