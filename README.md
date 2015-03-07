@@ -74,9 +74,7 @@ For each button, a `press` and `release` event exist:
  - `y`
  - `whammy`
 
-Range events receive a value. (These update extremely frequently, it may need to be normalized).
-
-For example:
+Range events receive a value. For example:
 
 ```javascript
 player1.on('x', function(val) {
