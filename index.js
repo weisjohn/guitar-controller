@@ -12,7 +12,6 @@ var usb = require('usb');
 // Current Available (mA):   500
 // Current Required (mA):    500
 
-
 var definitions = {
     "buttons": {
         "green":    [3, 0x10],
@@ -41,13 +40,19 @@ function GuitarController(end) {
 
     me.buttons = definitions.buttons;
     me.ranges = definitions.ranges;
-    me.controlState = new Buffer(20);
-    me.controlString = "";
+    me.controlState = new Buffer(12);
 
     end.on("data", function(data) {
 
         // early bolt for optimization improvements
-        if (data.toString('hex') == me.controlString) return;
+        var same = true;
+        for (var i = 0; i < 12; i++) {
+            if (me.controlState[i] !== data[i]) {
+                same = false;
+                break;
+            }
+        }
+        if (same) return;
 
         for (type in me.ranges) {
             var address = me.ranges[type];
@@ -61,12 +66,9 @@ function GuitarController(end) {
             var address = me.buttons[key];
             var chunk = address[0];
             var mask = address[1];
-            if (
-                // check if different from controlState
-                (me.controlState[chunk] & mask) !=
-                (data[chunk] & mask)
-            ) {
 
+            // check if different from controlState
+            if ((me.controlState[chunk] & mask) != (data[chunk] & mask)) {
                 if ((data[chunk] & mask) === mask) {
                     end.emit(key + ".press");
                 } else {
@@ -77,7 +79,6 @@ function GuitarController(end) {
 
         // save state to compare against next frame, update cache
         data.copy(me.controlState);
-        me.controlString = me.controlState.toString('hex');
     });
 }
 
