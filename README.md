@@ -91,8 +91,9 @@ player1.on('x', function(val) {
 
 ### sample
 
-Integration with baudio. (NOTE: the lag is from spawning a child-process, not from the driver).
-<video class="_c8hkj" poster="https://scontent-iad3-1.cdninstagram.com/t51.2885-15/e15/10611027_733367740062756_306429960_n.jpg?ig_cache_key=NzkxNDgxNDIwNzgzMTM1MDA5.2" preload="none" autoplay controls src="https://scontent-iad3-1.cdninstagram.com/t50.2886-16/10627084_716851585030335_697839434_n.mp4" type="video/mp4"></video>
+Here's a [sample integration with baudio](https://www.instagram.com/p/r76CikGakh/). (NOTE: the lag is from spawning a child-process, not from the driver).
+
+<video class="_c8hkj" poster="https://scontent-iad3-1.cdninstagram.com/t51.2885-15/e15/10611027_733367740062756_306429960_n.jpg?ig_cache_key=NzkxNDgxNDIwNzgzMTM1MDA5.2" src="https://scontent-iad3-1.cdninstagram.com/t50.2886-16/10627084_716851585030335_697839434_n.mp4" type="video/mp4" autoplay controls></video>
 
 ### contribution
 
