@@ -103,3 +103,6 @@ module.exports = function() {
 
     return controllers;
 }
+
+module.exports.buttons = definitions.buttons;
+module.exports.ranges = definitions.ranges;
