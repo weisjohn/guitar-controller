@@ -20,15 +20,22 @@ var controller = new EventEmitter();
 
 // file read into array (node streams probably can do better?)
 var events = [];
+var done = false;
 readInterface.on("line", function(line) {
     events.push(JSON.parse(line));
+});
+readInterface.on('close', function() {
+    done = true;
 });
 
 // timing loop to handle events
 var start = Date.now();
 function loop() {
     var event = events[0];
-    if (!event || !event.time) return setImmediate(loop);
+    if (!event || !event.time) {
+        if (done) return;
+        return setImmediate(loop);
+    }
     if ((Date.now() - start) > event.time) {
         if (debug) console.log(event);
         controller.emit(event.name, event.value);
