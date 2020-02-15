@@ -1,6 +1,4 @@
 var usb = require('usb');
-var lo = _ = require('lodash');
-var async = require('async');
 var repl = require('repl');
 
 var devices = [];
@@ -19,7 +17,7 @@ var devices = [];
 usb.setDebugLevel(1);
 
 var i = 0;
-_.each(usb.getDeviceList(), function(device) {
+usb.getDeviceList().forEach(function(device) {
 
     console.log(device);
 
@@ -28,10 +26,10 @@ _.each(usb.getDeviceList(), function(device) {
 
     device.open();
 
-    _.each(device.interfaces, function(inter) {
+    device.interfaces.forEach(function(inter) {
         inter.claim();
 
-        _.each(inter.endpoints, function(end) {
+        inter.endpoints.forEach(function(end) {
             if (end.direction !== "in") return;
             end.startPoll(1, end.descriptor.wMaxPacketSize);
             // end.on('data', function(d) { console.log(d); });
