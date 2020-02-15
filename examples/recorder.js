@@ -1,5 +1,5 @@
 var guitar_controller = require("../index");
-var controllers = require('../index')();
+var controllers = guitar_controller();
 
 if (!controllers[0]) throw new Error("No controller found");
 var controller = controllers[0];
