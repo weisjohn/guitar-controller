@@ -32,3 +32,7 @@ Object.keys(guitar_controller.buttons).forEach(function(button) {
 Object.keys(guitar_controller.ranges).forEach(function(range) {
   controller.on(range, log(range));
 });
+
+process.on("exit", function() {
+   console.log("\nsaved to", file.name, "\n");
+});
