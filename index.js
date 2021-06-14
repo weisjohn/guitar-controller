@@ -75,7 +75,7 @@ function GuitarController(end) {
                     end.emit(key + ".release");
                 }
             }
-        };
+        }
 
         // save state to compare against next frame, update cache
         data.copy(me.controlState);
